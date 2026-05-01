@@ -1,0 +1,66 @@
+docs/microeconomic_framework.md
+## Overview
+
+This document explains the microeconomic foundation behind the project.
+
+The project studies how different price sources reflect information, liquidity, timing, and market structure. In this context, Binance spot prices and Chainlink Data Streams prices are not treated as identical. They are treated as different mechanisms for observing and transmitting market information.
+
+## Research Motivation
+
+In microeconomics, prices are not only numbers. Prices also carry information.
+
+A market price can reflect:
+
+- Supply and demand
+- Liquidity conditions
+- Information arrival
+- Transaction costs
+- Market participant behavior
+- Short-term frictions
+- Delay in information transmission
+
+For crypto assets such as BTC, ETH, and SOL, price information can appear across multiple systems at slightly different times. Exchange prices are formed by trades and order books. Oracle prices are produced through external market data aggregation and reporting mechanisms.
+
+This creates a useful research question:
+
+> How do different price sources represent the same underlying asset over short time windows?
+
+## Price Discovery
+
+Price discovery is the process by which markets incorporate new information into prices.
+
+In centralized exchanges, price discovery happens through:
+
+- Limit orders
+- Market orders
+- Liquidity providers
+- Taker flow
+- Order book depth
+- Short-term volatility
+
+In oracle systems, price discovery is represented differently. The oracle does not directly operate like an exchange order book. Instead, it reports prices based on external market data sources and its own data aggregation methodology.
+
+Therefore, Binance and Chainlink may both describe BTC/USD, ETH/USD, or SOL/USD, but they do so through different market mechanisms.
+
+## Information Transmission
+
+A key microeconomic idea in this project is information transmission.
+
+When new information enters the market, it may be reflected first in one venue and later in another. The difference may come from:
+
+- Data aggregation delay
+- Timestamp differences
+- Reporting frequency
+- Liquidity fragmentation
+- Market volatility
+- Differences between traded prices and reference prices
+
+This project studies these differences by aligning timestamps and building fixed 5-minute windows.
+
+## Basis Between Price Sources
+
+The project defines basis as the difference between two price sources.
+
+```text
+basis_abs = chainlink_price - binance_close
+basis_pct = basis_abs / binance_close
