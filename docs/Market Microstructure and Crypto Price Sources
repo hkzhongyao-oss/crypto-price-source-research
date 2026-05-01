@@ -1,0 +1,8 @@
+- centralized exchange order books
+- liquidity and spread
+- price discovery
+- short-term volatility
+- oracle data aggregation
+- timestamp mismatch
+- exchange price vs oracle reference price
+- why different systems may report different prices
