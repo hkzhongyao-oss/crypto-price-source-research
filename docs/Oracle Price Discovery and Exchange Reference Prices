@@ -1,0 +1,6 @@
+- Binance prices are exchange-traded prices
+- Chainlink Data Streams are oracle-reported prices
+- both can reference the same asset but differ in construction
+- basis does not automatically mean error
+- timestamp alignment is necessary before comparison
+- historical reports are required for formal analysis
