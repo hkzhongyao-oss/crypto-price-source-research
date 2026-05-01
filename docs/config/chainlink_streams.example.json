@@ -1,0 +1,14 @@
+{
+  "BTC": {
+    "symbol": "BTC/USD",
+    "stream_id": "PUT_REAL_BTC_STREAM_ID_HERE"
+  },
+  "ETH": {
+    "symbol": "ETH/USD",
+    "stream_id": "PUT_REAL_ETH_STREAM_ID_HERE"
+  },
+  "SOL": {
+    "symbol": "SOL/USD",
+    "stream_id": "PUT_REAL_SOL_STREAM_ID_HERE"
+  }
+}
