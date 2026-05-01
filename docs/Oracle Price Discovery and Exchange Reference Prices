@@ -1,6 +1,59 @@
-- Binance prices are exchange-traded prices
-- Chainlink Data Streams are oracle-reported prices
-- both can reference the same asset but differ in construction
-- basis does not automatically mean error
-- timestamp alignment is necessary before comparison
-- historical reports are required for formal analysis
+# Oracle Price Discovery and Exchange Reference Prices
+
+## Overview
+
+This document explains how oracle-based price data and exchange-based price data can describe the same crypto asset while being produced through different mechanisms.
+
+The project focuses on BTC/USD, ETH/USD, and SOL/USD price-source comparison between Binance spot market data and Chainlink Data Streams.
+
+## Exchange-Traded Prices
+
+Binance spot prices are exchange-traded prices.
+
+They are formed through:
+
+- Limit orders
+- Market orders
+- Order book liquidity
+- Taker and maker activity
+- Spread
+- Short-term volatility
+- Real transaction flow
+
+Because exchange prices come from active trading, they can react quickly to market information.
+
+## Oracle-Reported Prices
+
+Chainlink Data Streams prices are oracle-reported prices.
+
+They are not formed by a single exchange order book. Instead, they are based on external market data sources and Chainlink's reporting infrastructure.
+
+Oracle prices may differ from a single exchange price because of:
+
+- Data aggregation methodology
+- Reporting timestamp
+- Reference market composition
+- Bid/ask construction
+- Latency
+- Data validation rules
+
+## Why Binance and Chainlink May Differ
+
+Binance and Chainlink can both reference BTC/USD, ETH/USD, or SOL/USD, but they do not necessarily produce identical values at every timestamp.
+
+Differences may appear because:
+
+- Binance reflects one trading venue
+- Chainlink reflects oracle-reported market data
+- Timestamps may not perfectly match
+- Short-term volatility can create temporary gaps
+- Data sources may update at different moments
+- Reference prices and traded prices are not always identical
+
+## Basis
+
+This project defines basis as:
+
+```text
+basis_abs = chainlink_price - binance_close
+basis_pct = basis_abs / binance_close
